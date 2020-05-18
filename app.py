@@ -111,7 +111,7 @@ def recommend():
     if r == 'spam':
         return render_template('recommend.html',x=message,r=r,t='s')
     else:
-		return render_template('recommend.html',x=message,r=r,t='r')
+    return render_template('recommend.html',x=message,r=r,t='r')
         
 if __name__ ==  '__main__':
 	app.run()
