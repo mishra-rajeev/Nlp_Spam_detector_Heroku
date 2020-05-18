@@ -66,14 +66,11 @@ def get_word_features(wordlist):
 
 ## - creating the word features for the entire dataset
 word_features = get_word_features(get_words_in_messages(messages_set))
-print(len(word_features))
-
 
 # ### Preparing to create a train and test set
 
 ## - creating slicing index at 80% threshold
 sliceIndex = int((len(messages_set)*.9))
-
 
 ## - shuffle the pack to create a random and unbiased split of the dataset
 random.shuffle(messages_set)
@@ -94,7 +91,6 @@ training_set = nltk.classify.apply_features(extract_features, train_messages)
 
 spamClassifier = nltk.NaiveBayesClassifier.train(training_set)
 
-
 app = Flask(__name__)
 
 @app.route('/')
@@ -111,9 +107,7 @@ def recommend():
     if r == 'spam':
         return render_template('recommend.html',x=message,r=r,t='s')
     else:
-        return render_template('recommend.html',x=message,r=r,t='r')			
-			
-
+        return render_template('recommend.html',x=message,r=r,t='r')
 
 if __name__ ==  '__main__':
 	app.run(debug=True)
