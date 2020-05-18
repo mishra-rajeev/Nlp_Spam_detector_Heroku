@@ -105,13 +105,13 @@ def home():
 @app.route('/recommend')
 def recommend():
     message = request.args.get('word')
-    data = list(message.split(" "))
+    data = list(message.split())
     m =' '.join(data)
     r = spamClassifier.classify(extract_features(m.split()))
     if r == 'spam':
         return render_template('recommend.html',x=message,r=r,t='s')
     else:
-        return render_template('recommend.html',x=message,r=r,t='r')
+		return render_template('recommend.html',x=message,r=r,t='r')
         
 if __name__ ==  '__main__':
-	app.run(debug=True)
+	app.run()
