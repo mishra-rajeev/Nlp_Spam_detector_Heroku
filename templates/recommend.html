@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+
+  {% if t=='s' %}
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h3 style="color:rgb(0, 102, 255)">Your Sentence is:"{{x}}" </h3>
+    <h3 style="color:rgb(0, 102, 255)">This is a <span style="color: #ff0000;">Spam</span>.</h3>
+    <h3 style="color:rgb(0, 102, 255)">Check for another sentence</h3>
+  </div>
+
+  {% else %}
+  <div class="shadow p-3 mb-5 bg-white rounded">
+    <h1 style="color:rgb(0, 102, 255)">Your Sentence is:"{{x}}"</h1>
+    <h3 style="color:rgb(0, 102, 255)">Result for this sentence is:</h3>
+  </div>
+
+    <ul class="list-group list-group-flush">
+      {% for suggested_words in r %}
+        <li class="list-group-item" style="color:rgb(0, 179, 0)"><strong>{{r|capitalize}}...</strong></li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endblock %}
