@@ -114,4 +114,4 @@ def recommend():
      return render_template('recommend.html',x=message,r=r,t='r')
         
 if __name__ ==  '__main__':
-	app.run()
+	app.run(debug=True)
